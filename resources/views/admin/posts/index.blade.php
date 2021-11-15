@@ -17,6 +17,12 @@
                         <p class="card-text"><small class="text-muted">{{ $post->author }}</small></p>
                         <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary">Show post</a>
                         <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-primary">Edit post</a>
+
+                        <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete Post</button>
+                        </form>
                     </div>
                 </div>
             @empty
