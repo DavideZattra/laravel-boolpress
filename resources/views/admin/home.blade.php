@@ -15,8 +15,13 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
                 </div>
             </div>
+        </div>
+        <div class="col-12 text-center pt-5">
+            
+            <a class="btn btn-primary" href="{{ route('admin.posts.index') }}">Vai ai post</a>
         </div>
     </div>
 </div>

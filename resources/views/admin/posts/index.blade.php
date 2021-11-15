@@ -15,14 +15,18 @@
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <p class="card-text">{{ $post->content }}</p>
                         <p class="card-text"><small class="text-muted">{{ $post->author }}</small></p>
-                        <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary">Show post</a>
-                        <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-primary">Edit post</a>
+                        <div class="d-flex justify-content-between align-items-center">
 
-                        <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete Post</button>
-                        </form>
+                            <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary">Show post</a>
+                            <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-primary">Edit post</a>
+    
+                            <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Delete Post</button>
+                            </form>
+                            
+                        </div>
                     </div>
                 </div>
             @empty
