@@ -39,7 +39,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        
+        dd($post);
+
+        // return response()->json([compact('post')]);
     }
 
     /**
