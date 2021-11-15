@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('Api')->group(function(){
-    Route::get('/posts', 'PostController@index');
+    // Route::get('/posts', 'PostController@index');
+    Route::resource('/posts', PostController::class);
 });
-// Route::resource('/posts', PostController::class);
