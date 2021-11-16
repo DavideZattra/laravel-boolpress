@@ -13,6 +13,13 @@
                     <h5 class="card-header">{{ $post->date }}</h5>
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
+                        {{-- @dd($post->category) --}}
+                        <p class="card-text">@if ($post->category)
+                            {{ $post->category->type }}
+                        @else
+                            uncategorized
+                        @endif
+                        </p>
                         <p class="card-text">{{ $post->content }}</p>
                         <p class="card-text"><small class="text-muted">{{ $post->author }}</small></p>
                         <div class="d-flex justify-content-between align-items-center">

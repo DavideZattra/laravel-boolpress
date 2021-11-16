@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Post;
 use Faker\Generator as Faker;
+use phpDocumentor\Reflection\Types\Null_;
 
 class PostsTableSeeder extends Seeder
 {
@@ -17,10 +18,8 @@ class PostsTableSeeder extends Seeder
 
             $newPost = new Post();
 
-            $categoryId =random_int(0, 9); //give a random category to the post
-            if ($categoryId = 0){
-                $categoryId = null;
-            }
+            $categoryId =random_int(1, 9); //give a random category to the post
+            
             
             $newPost->title = $faker->words(4, true);
             $newPost->category_id = $categoryId; 
