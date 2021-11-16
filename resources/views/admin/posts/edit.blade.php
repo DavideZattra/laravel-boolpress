@@ -16,6 +16,21 @@
                     <input class="form-control" type="text" id="title" name="title" placeholder="inserisci il titolo" value="{{ $post->title }}" required>
                     
                 </div>
+
+                <div class="form-group">
+        
+                    <select name="category_id" id="category_id">
+
+                            <option value="">Senza Categoria</option>
+                            @foreach ($categories as $category)
+                                <option 
+                                @if     ($post->category->id == $post->category_id) selected @endif
+                                value="{{ $category->id }}">{{ $category->type }}</option>
+                            @endforeach
+
+                    </select>
+                    
+                </div>
         
                 <div class="form-group">
                     
