@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
+
 use App\Models\Post;
+use App\Models\Category;
+use App\User;
+
 use Faker\Generator as Faker;
-use phpDocumentor\Reflection\Types\Null_;
+
 
 class PostsTableSeeder extends Seeder
 {
@@ -14,16 +19,18 @@ class PostsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $users_id = User::pluck('id')->toArray();
+        $category_Id = Category::pluck('id')->toArray();
+
         for( $i = 0; $i < 50; $i++ ){
 
             $newPost = new Post();
 
-            $categoryId =random_int(1, 9); //give a random category to the post
             
             
             $newPost->title = $faker->words(4, true);
-            $newPost->category_id = $categoryId; 
-            $newPost->author = $faker->firstName().' '.$faker->lastName();
+            $newPost->category_id = Arr::random($category_Id); 
+            $newPost->user_id = Arr::random($users_id);
             $newPost->content = $faker->paragraph(50, false);
             $newPost->date = $faker->date('Y-m-d');
             $newPost->img_url = $faker->imageUrl();

@@ -21,7 +21,7 @@ class UserInfoTableSeeder extends Seeder
             
             $userInfo = new UserInfo();
             
-            $userInfo->user_id = '';
+            $userInfo->user_id = $users_id[$i];
             $userInfo->date_of_birth = $faker->date('Y-m-d');
             $userInfo->country = $faker->country();
             $userInfo->region = $faker->state();
