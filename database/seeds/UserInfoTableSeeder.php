@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
 use App\Models\UserInfo;
+use App\User;
 
 class UserInfoTableSeeder extends Seeder
 {
@@ -14,8 +15,21 @@ class UserInfoTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $userInfo = new UserInfo();
+        $users_id = User::pluck('id')->toArray();
 
-        $userInfo->date_of_birth = $faker->dateTime();
+        for ($i=0; $i < 10; $i++) { 
+            
+            $userInfo = new UserInfo();
+            
+            $userInfo->user_id = '';
+            $userInfo->date_of_birth = $faker->date('Y-m-d');
+            $userInfo->country = $faker->country();
+            $userInfo->region = $faker->state();
+            $userInfo->city = $faker->city();
+            $userInfo->address = $faker->address();
+            $userInfo->telephone_number = $faker->phoneNumber();
+    
+            $userInfo->save();
+        }
     }
 }

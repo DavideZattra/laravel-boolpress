@@ -14,10 +14,11 @@ class CreateUserInfosTable extends Migration
     public function up()
     {
         Schema::create('user_infos', function (Blueprint $table) {
-
-            $table->unsignedBigInteger('user_id')->unique();
+        
+            $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->date('date_of_birth')->nullable();
-            $table->string('nationality', 100)->nullable();
+            $table->string('country', 100)->nullable();
             $table->string('region')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
@@ -28,7 +29,7 @@ class CreateUserInfosTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade'); //because 'user_id' isn't nullable
+                ->onDelete('set null'); 
         });
     }
 
