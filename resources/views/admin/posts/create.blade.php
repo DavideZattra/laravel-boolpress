@@ -30,23 +30,23 @@
                     
                 </div>
         
-                <div class="form-group">
+                {{-- <div class="form-group">
                     
                     <input class="form-control" type="text" id="author" name="author" placeholder="inserisci l'autore" required>
                     
-                </div>
+                </div> --}}
         
                 <div class="form-group">
                     
-                    <input class="form-control" type="text" id="content" name="content" placeholder="inserisci il contenuto" required>
+                    <textarea class="form-control" type="text" id="content" name="content" placeholder="inserisci il contenuto"  required></textarea>
                     
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                     
                     <input class="form-control" type="text" id="date" name="date" placeholder="YYYY/mm/dd" required>
                     
-                </div>
+                </div> --}}
         
                 <div class="form-group">
                     

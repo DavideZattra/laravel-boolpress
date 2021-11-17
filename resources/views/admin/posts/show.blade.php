@@ -20,7 +20,7 @@
                     @endif
                     </p>
                     <p class="card-text">{{ $post->content }}</p>
-                    <p class="card-text"><small class="text-muted">{{ $post->author }}</small></p>
+                    <p class="card-text"><small class="text-muted">{{ $post->author->name }}</small></p>
                     <div class="d-flex justify-content-between align-content-center">
 
                         <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-primary">Edit post</a>

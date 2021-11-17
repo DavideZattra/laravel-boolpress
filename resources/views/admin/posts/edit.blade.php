@@ -32,11 +32,11 @@
                     
                 </div>
         
-                <div class="form-group">
+                {{-- <div class="form-group">
                     
                     <input class="form-control" type="text" id="author" name="author" placeholder="inserisci l'autore" value="{{ $post->author }}" required>
                     
-                </div>
+                </div> --}}
         
                 <div class="form-group">
                     

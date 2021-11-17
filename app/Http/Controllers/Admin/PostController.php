@@ -6,7 +6,9 @@ use App\Models\Post;
 use App\Models\Category;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -44,6 +46,9 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['date'] = Carbon::now();
+        $data['user_id'] = Auth::user()->id;
+
         $post = new Post;
         $post->fill($data);
         $post->save();

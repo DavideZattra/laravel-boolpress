@@ -21,7 +21,7 @@
                         @endif
                         </p>
                         <p class="card-text">{{ $post->content }}</p>
-                        <p class="card-text"><small class="text-muted">{{ $post->author }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{ $post->author->name }}</small></p>
                         <div class="d-flex justify-content-between align-items-center">
 
                             <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary">Show post</a>
