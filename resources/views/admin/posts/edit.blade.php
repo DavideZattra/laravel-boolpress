@@ -32,11 +32,15 @@
                     
                 </div>
         
-                {{-- <div class="form-group">
+                <div class="form-group">
+                    {{-- @dd($tags) --}}
+                    @foreach ($tags as $tag)
+                        <input type="checkbox" id="tag-{{ $tag->id }}" value="{{$tag->id}}" name="tags[]">
+                        
+                        <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                    @endforeach
                     
-                    <input class="form-control" type="text" id="author" name="author" placeholder="inserisci l'autore" value="{{ $post->author }}" required>
-                    
-                </div> --}}
+                </div>
         
                 <div class="form-group">
                     

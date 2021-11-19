@@ -34,6 +34,13 @@
                             </form>
                             
                         </div>
+                        <p class="mt-4">
+                            @forelse ($post->tags as $tag)
+                                <span style="background-color: {{ $tag->color }}"> {{ $tag->name }} </span>
+                            @empty
+                                No Tags
+                            @endforelse    
+                        </p>
                     </div>
                 </div>
             @empty

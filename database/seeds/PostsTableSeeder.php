@@ -22,6 +22,8 @@ class PostsTableSeeder extends Seeder
         $users_id = User::pluck('id')->toArray();
         $category_Id = Category::pluck('id')->toArray();
 
+        
+
         for( $i = 0; $i < 50; $i++ ){
 
             $newPost = new Post();

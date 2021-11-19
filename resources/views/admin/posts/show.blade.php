@@ -13,7 +13,7 @@
                 <h5 class="card-header">{{ $post->date }}</h5>
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->title }}</h5>
-                    <p class="card-text">@if ($post->category)
+                    <p class="card-text text-uppercase">@if ($post->category)
                         {{ $post->category->type }}
                     @else
                         uncategorized
@@ -30,6 +30,7 @@
                             <button class="btn btn-danger" type="submit">Delete Post</button>
                         </form>
                     </div>
+                    <p>{{ $post->tags }}</p>
                 </div>
             </div>
                             
