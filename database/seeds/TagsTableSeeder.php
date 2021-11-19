@@ -5,6 +5,7 @@ use Faker\Generator as Faker;
 
 use App\Models\Tag;
 
+
 class TagsTableSeeder extends Seeder
 {
     /**
@@ -14,7 +15,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $tags = [ 'Romantic', 'Personal', 'Discover', 'Gaming', 'Now' ];
+        $tags = $faker->unique()->words(10); //random words for tags
         
 
         foreach ($tags as $tag) {

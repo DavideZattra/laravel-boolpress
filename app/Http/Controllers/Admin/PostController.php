@@ -104,11 +104,10 @@ class PostController extends Controller
         $data = $request->all();
         // dd($data);
         $post->update($data);
-        
+
         $post->tags()->detach();
         if(array_key_exists('tags', $data)) $post->tags()->sync($data['tags']);
         
-
         return redirect()->route('admin.posts.show', compact('post'));
     }
 
