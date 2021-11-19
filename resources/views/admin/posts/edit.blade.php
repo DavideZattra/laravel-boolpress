@@ -33,9 +33,11 @@
                 </div>
         
                 <div class="form-group">
-                    {{-- @dd($tags) --}}
+                    
                     @foreach ($tags as $tag)
-                        <input type="checkbox" id="tag-{{ $tag->id }}" value="{{$tag->id}}" name="tags[]">
+                        <input type="checkbox" id="tag-{{ $tag->id }}" value="{{$tag->id}}" name="tags[]" @if (in_array($tag->id, $tagsIds))
+                            checked
+                        @endif>
                         
                         <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
                     @endforeach

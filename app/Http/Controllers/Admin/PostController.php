@@ -85,7 +85,11 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
-        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
+        $tagsIds = $post->tags->pluck('id')->toArray();
+
+        // dd($tagsIds);
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags', 'tagsIds'));
     }
 
     /**
@@ -100,6 +104,10 @@ class PostController extends Controller
         $data = $request->all();
         // dd($data);
         $post->update($data);
+        
+        $post->tags()->detach();
+        if(array_key_exists('tags', $data)) $post->tags()->sync($data['tags']);
+        
 
         return redirect()->route('admin.posts.show', compact('post'));
     }
