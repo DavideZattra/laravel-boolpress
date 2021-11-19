@@ -35,18 +35,22 @@
                     <input class="form-control" type="text" id="author" name="author" placeholder="inserisci l'autore" required>
                     
                 </div> --}}
+
+                <div class="form-group">
+                    {{-- @dd($tags) --}}
+                    @foreach ($tags as $tag)
+                        <input type="checkbox" id="tag-{{ $tag->id }}" value="{{$tag->id}}" name="tags[]">
+                        
+                        <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                    @endforeach
+                    
+                </div>
         
                 <div class="form-group">
                     
                     <textarea class="form-control" type="text" id="content" name="content" placeholder="inserisci il contenuto"  required></textarea>
                     
                 </div>
-
-                {{-- <div class="form-group">
-                    
-                    <input class="form-control" type="text" id="date" name="date" placeholder="YYYY/mm/dd" required>
-                    
-                </div> --}}
         
                 <div class="form-group">
                     

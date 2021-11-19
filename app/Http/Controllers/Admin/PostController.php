@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
@@ -33,8 +34,9 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -46,12 +48,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        
+        // dd($data);
         $data['date'] = Carbon::now();
         $data['user_id'] = Auth::user()->id;
-
+        
+        
         $post = new Post;
         $post->fill($data);
         $post->save();
+        
+        if(array_key_exists('tags', $data)) $post->tags()->attach($data['tags']);
 
         return redirect()->route('admin.posts.show', $post);
     }
