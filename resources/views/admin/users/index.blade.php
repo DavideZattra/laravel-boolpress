@@ -21,7 +21,9 @@
                 @foreach ($users as $user)
                 <tr>
                     <th scope="row">{{ $user->id }}</th>
-                    <td>{{ $user->name }}</td>
+                    <td>
+                        <a href="{{ route('admin.users.show', $user) }}">{{ $user->name }}</a>
+                    </td>
                     <td>{{ $user->email }}</td>
                     <td>
                         @forelse ($user->roles as $role)

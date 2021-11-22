@@ -61,9 +61,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -72,9 +72,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        
+        $roles = Role::all();
+        $rolesIds = $user->roles()->pluck('id')->toArray();
+
+        return view('admin.users.edit', compact('user','roles', 'rolesIds'));
     }
 
     /**
@@ -84,9 +88,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+        $user->update($data);
+
+        $user->roles()->detach();
+        if(array_key_exists('roles', $data)) $user->roles()->sync($data['roles']);
+        
+        return redirect()->route('admin.users.show', compact('user'));
     }
 
     /**
