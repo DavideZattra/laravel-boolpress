@@ -38,12 +38,13 @@ class UsersTableSeeder extends Seeder
             $newUser->password = bcrypt($faker->password(8, 15));
             $newUser->save();
 
-            //random number of tags added
+            //random number of roles added
             for($j = 0; $j < random_int(0, count($roles_id)); $j++){
 
                 $role = Arr::random($roles_id);
-    
+                
                 $newUser->roles()->attach($role);
+                
             }
         }
     }   

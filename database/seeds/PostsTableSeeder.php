@@ -45,7 +45,7 @@ class PostsTableSeeder extends Seeder
 
                 $tags = Arr::random($tag_ids);
     
-                $newPost->tags()->attach($tags);
+                $newPost->tags()->sync($tags);
             }
         }
     }
