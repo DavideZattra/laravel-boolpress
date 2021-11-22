@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -28,7 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -38,8 +41,18 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $data = $request->all();
+        // dd($request->all());
+
+        $newUser = new User();
+
+        $newUser->fill($data);
+        $newUser->save();
+        
+        if(array_key_exists('roles', $data)) $newUser->roles()->sync($data['roles']);
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
