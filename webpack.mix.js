@@ -12,5 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/front.js', 'public/js') //instruction to compile the js file for the front office part
     .sass('resources/sass/app.scss', 'public/css')
     .options({ processCssUrls : false });
