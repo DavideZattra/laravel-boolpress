@@ -1,7 +1,12 @@
 <template>
   <div class="container">
       <h2>Work in progress</h2>
-      <Posts />
+    <div class="row">
+      <div class="col-12">
+
+        <Posts />
+      </div>
+    </div>
   </div>
 </template>
 

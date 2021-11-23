@@ -8,8 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref ">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -79,10 +79,10 @@
                 </div>
             @endif
             {{-- vue.js start --}}
-            <div id="root"></div>
-
-            <script src="{{ asset('js/front.js') }}"></script>
-            {{-- Vue.js ending --}}
         </div>
+        <div id="root"></div>
+
+        <script src="{{ asset('js/front.js') }}"></script>
+        {{-- Vue.js ending --}}
     </body>
 </html>
