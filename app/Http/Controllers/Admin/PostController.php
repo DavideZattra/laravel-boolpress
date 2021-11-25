@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class PostController extends Controller
 {
@@ -49,11 +51,11 @@ class PostController extends Controller
     {
         $data = $request->all();
         
-        // dd($data);
         $data['date'] = Carbon::now();
         $data['user_id'] = Auth::user()->id;
+        $data['img_url'] = Storage::put('public', $data['image']);
         
-        
+        // dd($data);
         $post = new Post;
         $post->fill($data);
         $post->save();

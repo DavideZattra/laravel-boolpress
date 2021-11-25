@@ -19,6 +19,9 @@
                         uncategorized
                     @endif
                     </p>
+                    <img class="img-fluid" src="{{ asset('storage/') . $post->img_url }}" alt="">
+                </div>
+                <div class="card-body">
                     <p class="card-text">{{ $post->content }}</p>
                     <p class="card-text"><small class="text-muted">{{ $post->author->name }}</small></p>
                     <div class="d-flex justify-content-between align-content-center">

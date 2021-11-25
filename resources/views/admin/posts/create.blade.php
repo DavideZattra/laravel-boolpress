@@ -6,7 +6,7 @@
         <div class="col12">
             
 
-            <form action="{{ route('admin.posts.store')}}" method="POST">
+            <form action="{{ route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
@@ -30,11 +30,6 @@
                     
                 </div>
         
-                {{-- <div class="form-group">
-                    
-                    <input class="form-control" type="text" id="author" name="author" placeholder="inserisci l'autore" required>
-                    
-                </div> --}}
 
                 <div class="form-group">
                     {{-- @dd($tags) --}}
@@ -54,7 +49,7 @@
         
                 <div class="form-group">
                     
-                    <input class="form-control" type="text" id="img_url" name="img_url" placeholder="inserisci l'url della copertina" required>
+                    <input class="form-control" type="file" id="image" name="image" >
                     
                 </div>
         
