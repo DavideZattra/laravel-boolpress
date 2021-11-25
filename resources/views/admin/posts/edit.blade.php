@@ -6,7 +6,7 @@
         <div class="col-12">
             
 
-            <form action="{{ route('admin.posts.update', $post)}}" method="POST">
+            <form action="{{ route('admin.posts.update', $post)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 @method('PATCH')
@@ -58,7 +58,7 @@
         
                 <div class="form-group">
                     
-                    <input class="form-control" type="text" id="img_url" name="img_url" placeholder="inserisci l'url della copertina" value="{{ $post->img_url }}" required>
+                    <input class="form-control" type="file" id="image" name="image" placeholder="inserisci l'url della copertina" value="{{ $post->img_url }}" required>
                     
                 </div>
         

@@ -104,6 +104,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $data = $request->all();
+        $data['img_url'] = Storage::put('public', $data['image']);
         // dd($data);
         $post->update($data);
 
