@@ -19,7 +19,7 @@
                         uncategorized
                     @endif
                     </p>
-                    <img class="img-fluid" src="{{ asset('storage/') . $post->img_url }}" alt="">
+                    <img class="img-fluid" src="{{ asset('storage/'. $post->img_url)}}" alt="{{ $post->title }}">
                 </div>
                 <div class="card-body">
                     <p class="card-text">{{ $post->content }}</p>
